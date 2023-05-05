@@ -1,0 +1,40 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "SDL2",
+            "type": "shell",
+            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-g",
+                "src\\**.cpp",
+                "-o",
+                "build\\main.exe",
+                "-IC:\\Users\\Dell\\Downloads\\SDL2-devel-2.26.3-mingw\\SDL2-2.26.3\\x86_64-w64-mingw32\\include\\SDL2",
+                "-LC:\\Users\\Dell\\Downloads\\SDL2-devel-2.26.3-mingw\\SDL2-2.26.3\\x86_64-w64-mingw32\\lib",
+                "-lmingw32",
+                "-lSDL2main",
+                "-lSDL2",
+               
+                "-lSDL2_image",
+                "-lSDL2_mixer",
+                "-lSDL2_ttf" ,
+                "-mwindows"
+                
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher":[
+                "$gcc"
+                 ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+            
+        }
+    ]
+}
