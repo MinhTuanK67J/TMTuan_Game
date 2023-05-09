@@ -134,9 +134,9 @@ void LTexture::loadSound(std::string path)
 std::string LTexture::randomPathPicture(int i)
 {
 	std::string path = ".png";
-	int randPic = rand() % (maxImage);
+	int randPic = rand() % (quantityofPicture);
 	while (signName[randPic] > 0)
-		randPic = rand() % (maxImage);
+		randPic = rand() % (quantityofPicture);
 	signName[randPic]++;
 	path.insert(0, name[randPic]);
 	numberPic[i] = randPic;

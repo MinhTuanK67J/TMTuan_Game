@@ -19,7 +19,7 @@ class LTexture
 		LTexture();
 		~LTexture();
         const int SCREEN_WIDTH = 800;
-        const int SCREEN_HEIGHT = 554;
+        const int SCREEN_HEIGHT = 550;
         bool played = false;
 		std::string pathPictureRender[12];
         bool quit;
@@ -32,15 +32,16 @@ class LTexture
         void close();
         void loadMedia(std::string path,int x, int y, int w, int h);
 		void init();
+        void openPicture();
         void clearScreen();
         void renderPicture();
         void loadSound(std::string path);
-        void openPicture();
+       
 	private:
 		SDL_Texture* mTexture;
 		int mWidth;
 		int mHeight;
-        const int maxImage = 12;
+        const int quantityofPicture = 12;
         const std::string name[12] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
         const int posx[12] = {103, 263, 423, 583, 103, 263, 423, 583, 103, 263, 423, 583};
         const int posy[12] = {97, 97, 97, 97, 244, 244, 244, 244, 390, 390, 390, 390};

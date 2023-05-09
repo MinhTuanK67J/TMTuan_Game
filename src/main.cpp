@@ -61,7 +61,9 @@ void LTexture::renderPicture()
         if (countPic == 12)
         {
             clearScreen();
+            Mix_HaltMusic();
             loadMedia("image/win.png", 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+            loadSound("sound/victory.wav");
             SDL_RenderPresent( gRenderer );
             SDL_Delay(2000);
             quit = true;
@@ -74,9 +76,11 @@ void LTexture::renderPicture()
         loadText(time);
         Game.render(395,28);
         clearScreen();
+        Mix_HaltMusic();
         loadMedia("image/lose.png", 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        loadSound("sound/lose.wav");
         SDL_RenderPresent( gRenderer );
-        SDL_Delay(2000);
+        SDL_Delay(4000);
         quit = true;
         return;
     }
@@ -124,12 +128,12 @@ int main(int argc, const char * argv[])
     Game.gMusic = Mix_LoadMUS( "sound/mainMusic.wav" );
     Mix_PlayMusic( Game.gMusic, -1 );
     bool qu = false;
-    while (!qu) 
+    while (!qu) {
     while( SDL_PollEvent( &Game.event ) != 0 )
     {
         if( Game.event.type == SDL_QUIT )
         {
-            qu = true;
+            return 0;
         }
         else
         {
@@ -161,6 +165,7 @@ int main(int argc, const char * argv[])
             }
         }
     }
+    }
     while( !Game.quit )
     {
         Game.renderPicture();
@@ -169,6 +174,7 @@ int main(int argc, const char * argv[])
             if( Game.event.type == SDL_QUIT )
             {
                 Game.quit = true;
+                return 0;
             }
             else
             {
