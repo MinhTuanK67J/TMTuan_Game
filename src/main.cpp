@@ -163,6 +163,13 @@ int main(int argc, const char * argv[])
                 Game.renderPicture();
                 qu = true;
             }
+            if (!Game.played  && (Game.event.type == SDL_MOUSEBUTTONDOWN) &&
+                (Game.event.button.x>=325 && Game.event.button.x<=475) && (Game.event.button.y >= 405 && Game.event.button.y <= 455))
+                {   Game.clearScreen();
+                    Game.loadMedia("image/gameguice.png", 0, 0, Game.SCREEN_WIDTH, Game.SCREEN_HEIGHT);
+                    SDL_RenderPresent( Game.gRenderer );
+                    SDL_Delay(7000);
+                }
         }
     }
     }
