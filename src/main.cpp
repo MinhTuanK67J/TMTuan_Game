@@ -114,7 +114,11 @@ void LTexture::renderPicture()
     }
     SDL_RenderPresent( gRenderer );
 }
-
+void LTexture::clearScreen()
+{
+	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+	SDL_RenderClear(gRenderer);
+}
 int main(int argc, const char * argv[])
 {
     srand(time(NULL));

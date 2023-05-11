@@ -144,12 +144,6 @@ std::string LTexture::randomPathPicture(int i)
 	return path;
 }
 
-void LTexture::clearScreen()
-{
-	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
-	SDL_RenderClear(gRenderer);
-}
-
 void LTexture::pathPicture()
 {
 	for (int i = 0; i < 12; i++)
